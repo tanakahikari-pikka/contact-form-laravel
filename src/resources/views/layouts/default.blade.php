@@ -7,27 +7,18 @@
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <style>
-        body {
-        font-size:16px;
-        margin: 5px;
-        }
-        h1 {
-        font-size:60px;
-        color:white;
-        text-shadow:1px 0 5px #289ADC;
-        letter-spacing:-4px;
-        margin-left: 10px
-        }
-        .content {
-        margin:10px;
-        }
-    </style>
 </head>
 <body>
-    <h1>@yield('title')</h1>
+    <header>
+        <nav>
+            <div class="nav-wrapper amber lighten-5 row">
+                <a href="#" class="brand-logo center black-text">FashionablyLate</a>
+                <a href="#"  class="right col s2 black-text">login</a>
+            </div>
+        </nav>
+    </header>
     <div class="content">
-        <p class="blue-text text-darken-2">sss</p>
+        <h2 class="blown-text text-lighten-1 center heading h4">@yield('title')</p>
         @yield('content')
     </div>
 </body>
