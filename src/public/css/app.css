@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    padding: 16px 0;
+    height: 80px;
+    border: 1px solid #e0dfde;
+    text-align: center;
+    font-family: serif;
+    background-color: #f0f0f0;
+}
+
+.header_logo {
+    font-size: 32px;
+    color: #8b7969;
+
+    grid-column: 2;
+}
+
+.header_button {
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    width: 100px;
+    border: 1px solid #d9c6b5;
+    grid-column: 3;
+    color: #d9c6b5;
+    text-decoration: none;
+}
