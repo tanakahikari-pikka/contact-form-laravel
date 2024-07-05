@@ -4,6 +4,12 @@
 <link rel="stylesheet" href="{{ asset('css/register.css')}}">
 @endsection
 
+@section('link')
+    <form action="/" method="post">
+        @csrf
+        <input class="header_button" type="submit" value="login">
+    </form>
+@endsection
 @section('title', 'Register')
 
 @section('content')

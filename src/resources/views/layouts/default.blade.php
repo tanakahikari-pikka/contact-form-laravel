@@ -15,10 +15,6 @@
             <header class="header">
                 <h1 class="header_logo">FashionablyLate</h1>
                 @yield('link')
-                <!-- <form action="/" method="post">
-                    @csrf
-                    <input class="header_button" type="submit" value="あ">
-                </form> -->
             </header>
             <div class="content">
                 <div class="heading_title text-align-center header_title mt-3">

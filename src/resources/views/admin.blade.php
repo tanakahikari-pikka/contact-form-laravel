@@ -6,6 +6,13 @@
 
 @section('title', 'admin')
 
+@section('link')
+    <form action="/" method="post">
+        @csrf
+        <input class="header_button" type="submit" value="logout">
+    </form>
+@endsection
+
 @section('content')
 @section('heading', 'Admin')
 <div class="container">
