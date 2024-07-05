@@ -16,7 +16,6 @@
 @section('content')
 @section('heading', 'Admin')
 <div class="container">
-    <!-- テキストフォーム -->
     <form class="form-inline" action="" method="post">
         @csrf
         <div class="d-flex justify-content-between mt-2 mb-2">

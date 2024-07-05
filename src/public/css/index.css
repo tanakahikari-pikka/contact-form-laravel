@@ -85,7 +85,6 @@ input[type="radio"] {
 }
 
 .btn-submit {
-    width: 150px;
     padding: 10px;
     border: none;
     cursor: pointer;
