@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
 
-    <link rel="stylesheet" href="{{ asset('css/reset.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+    @yield('css')
+
 </head>
-<body>
-    <div class="container">
-        <header class="header">
-            <h1 class="header_logo">FashionablyLate</h1>
-            <a class="header_button" href="">button</a>
-            <!-- @yield('enter') -->
-        </header>
-        <div class="content">
-            @yield('title')
-            @yield('content')
+    <body>
+        <div class="app">
+            <header class="header">
+                <h1 class="header_logo">FashionablyLate</h1>
+                @yield('link')
+                <!-- <form action="/" method="post">
+                    @csrf
+                    <input class="header_button" type="submit" value="あ">
+                </form> -->
+            </header>
+            <div class="content">
+                @yield('content')
+            </div>
         </div>
-    </div>
-</body>
-</html>
+    </body>
+</html> 
