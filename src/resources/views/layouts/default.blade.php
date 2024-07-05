@@ -21,6 +21,9 @@
                 </form> -->
             </header>
             <div class="content">
+                <div class="heading_title text-align-center header_title mt-3">
+                    @yield('heading')
+                </div>
                 @yield('content')
             </div>
         </div>

@@ -3,6 +3,7 @@
 @section('title', 'admin')
 
 @section('content')
+@section('heading', 'Admin')
 <div class="container">
     <div class="row">
         <div class="col s12">

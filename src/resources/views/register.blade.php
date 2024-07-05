@@ -4,9 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/register.css')}}">
 @endsection
 
-@section('title', 'register')
+@section('title', 'Register')
 
 @section('content')
+@section('heading', 'Register')
 <div class="container">
     <div class="row">
         <div class="col s12">

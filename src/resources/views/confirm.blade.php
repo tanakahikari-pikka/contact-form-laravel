@@ -3,6 +3,7 @@
 @section('title', 'confirm')
 
 @section('content')
+@section('heading', 'Confirm')
 <div class="container">
     <div class="row">
         <div class="col s12">

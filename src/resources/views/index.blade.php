@@ -1,8 +1,9 @@
 @extends('layouts.default')
 
-@section('title', 'otoiawase')
+@section('title', 'Contact')
 
 @section('content')
+@section('heading', 'Contact')
     <div class="container">
         <div class="row">
             <div class="col s12">
