@@ -21,10 +21,10 @@ input::placeholder {
 }
 
 .header {
-    padding: 0;
+    padding: 20px 0;
     display: grid;
     align-items: center;
-    height: 60px;
+    height: 90px;
     border: 1px solid #e3e2e1;
     text-align: center;
     font-family: serif;
@@ -58,4 +58,8 @@ input::placeholder {
     grid-column: 3;
     color: #d9c6b5;
     text-decoration: none;
+}
+
+.content {
+    min-height: 100vh;
 }

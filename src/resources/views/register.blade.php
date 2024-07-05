@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/register.css')}}">
+@endsection
+
 @section('title', 'register')
 
 @section('content')
