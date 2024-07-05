@@ -14,7 +14,7 @@
         @csrf
         <div class="d-flex justify-content-between mt-2 mb-2">
             <input type="text" name="name" class="mail-form" id="name" placeholder="名前やメールアドレスを入力してください">
-            <!-- 選択時のデザインがダサいのでカスタムドロップダウンを使うかも -->
+            <!-- TODO: デフォルトのデザインがダサいのでカスタムドロップダウン作成 -->
             <select name="select" id="select" class="select-form">
                 <option value="" selected disabled>性別</option>
                 <option value="1">男性</option>
