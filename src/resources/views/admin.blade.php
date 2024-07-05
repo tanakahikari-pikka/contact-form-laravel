@@ -39,7 +39,7 @@
                 <ul class="pagination
                 justify-content-center">
                     <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">前へ</a>
+                        <a class="page-link" href="#" tabindex="-1"><</a>
                     </li>
                     <li class="page-item active">
                         <a class="page-link" href="#">1</a>
@@ -51,7 +51,7 @@
                         <a class="page-link" href="#">3</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="#">次へ</a>
+                        <a class="page-link" href="#">></a>
                     </li>
                 </ul>
             </div>
