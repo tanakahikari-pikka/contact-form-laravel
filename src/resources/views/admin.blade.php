@@ -18,21 +18,27 @@
 <div class="container">
     <form class="form-inline" action="" method="post">
         @csrf
+        <!--　TODO： 画面幅に応じて　ボタン群の幅を可変にする -->
         <div class="d-flex justify-content-between mt-2 mb-2">
             <input type="text" name="name" class="mail-form" id="name" placeholder="名前やメールアドレスを入力してください">
-            <!-- TODO: デフォルトのデザインがダサいのでカスタムドロップダウン作成 -->
-            <select name="select" id="select" class="select-form">
-                <option value="" selected disabled>性別</option>
-                <option value="1">男性</option>
-                <option value="2">女性</option>
-                <option value="3">その他</option>
-            </select>
-            <select name="select" id="select" class="select-form">
-                <option value="" selected disabled>お問い合わせの種類</option>
-                <option value="1">カテゴリ1</option>
-                <option value="2">カテゴリ2</option>
-                <option value="3">カテゴリ3</option>
-            </select>
+            <div class="dropdown">
+                <div class="select-box" tabindex="1">性別</div>
+                <div class="options-container">
+                    <div class="option" data-value="1">男性</div>
+                    <div class="option" data-value="2">女性</div>
+                    <div class="option" data-value="3">その他</div>
+                </div>
+                <input type="hidden" name="gender" id="gender">
+            </div>
+            <div class="dropdown">
+                <div class="select-box" tabindex="1">お問い合わせの種類</div>
+                <div class="options-container">
+                    <div class="option" data-value="1">カテゴリ1</div>
+                    <div class="option" data-value="2">カテゴリ2</div>
+                    <div class="option" data-value="3">カテゴリ3</div>
+                </div>
+                <input type="hidden" name="category" id="category">
+            </div>
             <!-- 日付選択 -->
             <input type="date" name="date" id="date" class="date-form">
             <button type="submit" class="btn-serch bg-dark-brawn white">検索</button>

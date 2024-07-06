@@ -80,14 +80,14 @@
                 <div class="form-label">
                     <label for="お問い合わせの種類">お問い合わせの種類 <span class="required">※</span></label>
                 </div>
-                <div class="form-content">
-                    <select name="category" id="category" class="category-form">
-                        <!-- TODO: デフォルトのデザインがダサいのでカスタムドロップダウン作成 -->
-                        <option value="" selected disabled>選択してください</option>
-                        <option value="1">カテゴリ1</option>
-                        <option value="2">カテゴリ2</option>
-                        <option value="3">カテゴリ3</option>
-                    </select>
+                <div class="dropdown">
+                    <div class="select-box" tabindex="1">選択してください <span><svg width="15" height="15" viewBox="0 0 100 100"><polygon points="0,0 100,0 50,50" fill="#89725d" /></svg></span></div>
+                    <div class="options-container">
+                        <div class="option" data-value="1">カテゴリ1</div>
+                        <div class="option" data-value="2">カテゴリ2</div>
+                        <div class="option" data-value="3">カテゴリ3</div>
+                    </div>
+                    <input type="hidden" name="category" id="category">
                 </div>
             </div>
             <div class="form-group">
