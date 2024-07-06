@@ -7,7 +7,7 @@
 @section('title', 'admin')
 
 @section('link')
-    <form action="/" method="post">
+    <form action="/logout" method="post">
         @csrf
         <input class="header_button" type="submit" value="logout">
     </form>

@@ -7,8 +7,7 @@
 @section('title', 'Login')
 
 @section('link')
-    <form action="/" method="post">
-        @csrf
+    <form action="/register" method="get">
         <input class="header_button" type="submit" value="register">
     </form>
 @endsection

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +17,8 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [ContactController::class, 'index']);
 Route::get('/confirm', [ContactController::class, 'confirm']);
-Route::get('/register', [UserController::class, 'register']);
-Route::get('/login', [UserController::class, 'login']);
-Route::get('/admin', [ContactController::class, 'admin']);
 Route::get('/thanks', [ContactController::class, 'thanks']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [ContactController::class, 'admin']);
+});
