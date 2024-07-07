@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('categry_id');
+            $table->unsignedBigInteger('category_id');
             $table->string('first_name', 255);
             $table->string('last_name', 255);
             $table->tinyInteger('gender');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->text('detail')->nullable();
             $table->timestamps();
 
-            $table->foreign('categry_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

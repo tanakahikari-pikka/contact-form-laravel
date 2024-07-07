@@ -14,6 +14,15 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()->count(5)->create();
+        $categories = [
+            '質問',
+            '要望',
+            '感想',
+            'その他',
+        ];
+
+        foreach ($categories as $category) {
+            Category::create(['content' => $category]);
+        }
     }
 }

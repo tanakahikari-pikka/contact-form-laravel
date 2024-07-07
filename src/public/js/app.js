@@ -38,4 +38,16 @@ $(() => {
             }
         }
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // オプションがクリックされたときのイベントリスナーを設定
+        for (const option of document.querySelectorAll(".option")) {
+            option.addEventListener("click", function () {
+                // クリックされたオプションのdata-valueを取得
+                const value = this.getAttribute("data-value");
+                // 取得した値をinputタグのvalueに設定
+                document.querySelector('input[name="category"]').value = value;
+            });
+        }
+    });
 });
