@@ -18,8 +18,8 @@
                     </div>
                     <div class="form-content">
                         <div class="d-flex justify-content-between">
-                            <input type="text" name="first_name" class="base-form mr-2" placeholder="例: 山田">
-                            <input type="text" name="last_name" class="base-form" placeholder="例: 太郎">
+                            <input type="text" name="first_name" class="base-form mr-2" placeholder="例: 山田" value="{{ old('first_name')}}">
+                            <input type="text" name="last_name" class="base-form" placeholder="例: 太郎" value="{{ old('last_name')}}">
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="form-content">
                             <div>
-                                <input type="text" name="email" class="base-form" placeholder="例: test@example.com">
+                                <input type="text" name="email" class="base-form" placeholder="例: test@example.com" value="{{ old('email')}}">
                             </div>
                         </div>
                 </div>
@@ -83,9 +83,9 @@
                         <label for="電話番号">電話番号 <span class="required">※</span></label>
                     </div>
                     <div class="form-content d-flex justify-content-between">
-                        <input type="text" name="tel1" class="base-form" placeholder="080"> <span class="d-flex align-items-center ml-1 mr-1">-</span>
-                        <input type="text" name="tel2" class="base-form" placeholder="1234"> <span class="d-flex align-items-center ml-1 mr-1">-</span>
-                        <input type="text" name="tel3" class="base-form" placeholder="5678">
+                        <input type="text" name="tel1" class="base-form" placeholder="080" value="{{ old('tel1')}}"> <span class="d-flex align-items-center ml-1 mr-1">-</span>
+                        <input type="text" name="tel2" class="base-form" placeholder="1234" value="{{ old('tel2')}}"> <span class="d-flex align-items-center ml-1 mr-1">-</span>
+                        <input type="text" name="tel3" class="base-form" placeholder="5678" value="{{ old('tel3')}}">
                     </div>
                 </div>
                 <p class="error-message">
@@ -114,7 +114,7 @@
                     </div>
                     <div class="form-content">
                         <div>
-                            <input type="text" name="address" class="base-form" placeholder="例: 東京都渋谷区千駄ヶ谷１−２−３">
+                            <input type="text" name="address" class="base-form" placeholder="例: 東京都渋谷区千駄ヶ谷１−２−３" value="{{ old('address')}}">
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                     </div>
                     <div class="form-content">
                         <div>
-                            <input type="text" name="building" class="base-form" placeholder="例: 千駄ヶ谷マンション101">
+                            <input type="text" name="building" class="base-form" placeholder="例: 千駄ヶ谷マンション101" value="{{ old('building')}}">
                         </div>
                     </div>
                 </div>
@@ -171,9 +171,7 @@
                         <label for="お問い合わせ内容">お問い合わせ内容 <span class="required">※</span></label>
                     </div>
                     <div class="form-content">
-                        <div>
-                            <textarea name="detail" class="description-form" placeholder="お問い合わせ内容をご記載ください"></textarea>
-                        </div>
+                        <textarea type="text" name="detail" class="description-form" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                     </div>
                 </div>
                 <p class="error-message">
