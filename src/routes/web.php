@@ -21,5 +21,6 @@ Route::post('/create', [ContactController::class, 'create']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [ContactController::class, 'admin']);
+    Route::get('/search', [ContactController::class, 'search']);
     Route::post('/delete', [ContactController::class, 'delete']);
 });

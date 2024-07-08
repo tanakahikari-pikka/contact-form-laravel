@@ -11,9 +11,9 @@ use BenSampo\Enum\Enum;
  */
 final class GenderType extends Enum
 {
-    const Male = 0;
-    const Female = 1;
-    const Other = 2;
+    const Male = 1;
+    const Female = 2;
+    const Other = 3;
 
 /**
      * Get the description for an enum value

@@ -17,11 +17,11 @@
 @section('content')
 @section('heading', 'Admin')
 <div class="container">
-    <form class="form-inline" action="">
+    <form action="/search" method='get'>
         @csrf
         <!--　TODO： 画面幅に応じて　ボタン群の幅を可変にする -->
         <div class="d-flex justify-content-between mt-2 mb-2">
-            <input type="text" name="name" class="mail-form" id="name" placeholder="名前やメールアドレスを入力してください">
+            <input type="text" name="keyword" class="mail-form" placeholder="名前やメールアドレスを入力してください" value="{{ request('keyword') }}">
             <div class="dropdown">
                 <div class="select-box" tabindex="1">性別</div>
                 <div class="options-container">
@@ -29,7 +29,7 @@
                     <div class="option" data-value="2">女性</div>
                     <div class="option" data-value="3">その他</div>
                 </div>
-                <input type="hidden" name="gender">
+                <input type="hidden" name="gender" value="{{ request('gender') }}">
             </div>
             <div class="dropdown">
                 <div class="select-box" tabindex="1">お問い合わせの種類</div>
@@ -38,12 +38,12 @@
                         <div class="option" data-value="{{ $loop->iteration }}">{{ $category->content }}</div>
                     @endforeach
                 </div>
-                <input type="hidden" name="category_id">
+                <input type="hidden" name="category_id" value="{{ request('category_id') }}">
             </div>
             <!-- 日付選択 -->
-            <input type="date" name="date" id="date" class="date-form">
+            <input type="date" name="date" value="{{ request('date') }}" class="date-form">
             <button type="submit" class="btn-serch bg-dark-brawn white">検索</button>
-            <button type="submit" class="btn-reset bg-lighter-brawn white">リセット</button>
+            <button class="btn-reset bg-lighter-brawn white" type="submit" value="リセット" name="reset">リセット</button>
         </div>
         <div class="d-flex justify-content-between mb-1">
             <button type="submit" class="btn-export bg-ash">エクスポート</button>
