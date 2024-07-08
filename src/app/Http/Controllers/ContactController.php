@@ -42,7 +42,10 @@ class ContactController extends Controller
 
     public function admin()
     {
-        return view('admin');
+        $contacts = Contact::join('categories', 'contacts.category_id', '=', 'categories.id')
+            ->select('contacts.*', 'categories.content')
+            ->paginate(10);
+        return view('admin', compact('contacts'));
     }
 
     public function thanks()

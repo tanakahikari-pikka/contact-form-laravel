@@ -47,26 +47,7 @@
         <div class="d-flex justify-content-between mb-1">
             <button type="submit" class="btn-export bg-ash">エクスポート</button>
             <!-- ページネーション -->
-            <div class="pagination">
-                <ul class="pagination
-                justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1"><</a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">></a>
-                    </li>
-                </ul>
-            </div>
+        {{ $contacts->links('vendor.pagenation.custom') }}
         </div>
         <table class="table">
             <thead>
@@ -79,16 +60,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-bottom">
-                    <td class="border-left">山田太郎</td>
-                    <td>男性</td>
-                    <td>mainl@main.com</td>
-                    <td>カテゴリ1</td>
-                    <td class="border-right">
-                        <button type="submit" class="btn-show">詳細</button>
-                    </td>
-                </tr>
+                @foreach($contacts as $contact)
+                    <tr class="border-bottom">
+                        <td class="border-left">{{ $contact['first_name']." ".$contact['last_name'] }}</td>
+                        <td>{{ getGenderText((int)$contact['gender']) }}</td>
+                        <td>{{ $contact['email'] }}</td>
+                        <td>{{ $contact['category']['content'] }}</td>
+                        <td class="border-right">
+                            <button type="submit" class="btn-show">詳細</button>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
+        </table>
     </form>
 </div>
 @endsection
