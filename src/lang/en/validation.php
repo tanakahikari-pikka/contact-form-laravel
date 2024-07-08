@@ -99,8 +99,8 @@ return [
     'min' => [
         'array' => 'The :attribute must have at least :min items.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'numeric' => 'The :attribute must be at least :min.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'numeric' => ':attribute は最低 :min 文字以上入力してください.',
+        'string' => ':attribute は最低 :min 文字以上入力してください.',
     ],
     'min_digits' => 'The :attribute must have at least :min digits.',
     'missing' => 'The :attribute field must be missing.',

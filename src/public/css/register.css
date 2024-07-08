@@ -47,3 +47,7 @@
     cursor: pointer;
     margin-top: 20px;
 }
+
+.error-message {
+    color: red;
+}
