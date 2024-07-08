@@ -29,16 +29,16 @@
                     <div class="option" data-value="2">女性</div>
                     <div class="option" data-value="3">その他</div>
                 </div>
-                <input type="hidden" name="gender" id="gender">
+                <input type="hidden" name="gender">
             </div>
             <div class="dropdown">
                 <div class="select-box" tabindex="1">お問い合わせの種類</div>
                 <div class="options-container">
-                    <div class="option" data-value="1">カテゴリ1</div>
-                    <div class="option" data-value="2">カテゴリ2</div>
-                    <div class="option" data-value="3">カテゴリ3</div>
+                    @foreach($categories as $category)
+                        <div class="option" data-value="{{ $loop->iteration }}">{{ $category->content }}</div>
+                    @endforeach
                 </div>
-                <input type="hidden" name="category" id="category">
+                <input type="hidden" name="category_id">
             </div>
             <!-- 日付選択 -->
             <input type="date" name="date" id="date" class="date-form">
@@ -49,6 +49,7 @@
             <button type="submit" class="btn-export bg-ash">エクスポート</button>
             {{ $contacts->links('vendor.pagenation.custom') }}
         </div>
+    </form>
         <table class="table">
             <thead>
                 <tr class="bg-dark-brawn white text-align-left">
@@ -60,50 +61,53 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($contacts as $contact)
-                    <div id="modal-{{ $contact->id }}" class="modal">
-                        <div class="modal-content">
-                            <div class="modal-container">
-                                <span class="close">&times;</span>
-                                <div class="d-flex mb-2">
-                                    <p class="modal-label">お名前</p>
-                                    <p class="modal-value">{{ $contact->first_name." ".$contact->last_name }}</p>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <p class="modal-label">性別</p>
-                                    <p class="modal-value">{{ getGenderText((int)$contact->gender)}}</p>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <p class="modal-label">メールアドレス</p>
-                                    <p class="modal-value">{{ $contact->email }}</p>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <p class="modal-label">お問い合わせの種類</p>
-                                    <p class="modal-value">{{ $contact->category->content }}</p>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <p class="modal-label">お問い合わせ内容</p>
-                                    <p class="modal-value">{{ $contact->detail }}</p>
-                                </div>
-                                <div class="text-align-center">
-                                    <button class="delete white">削除</button>
-                                </div>
+                    @foreach($contacts as $contact)
+                        <div id="modal-{{ $contact->id }}" class="modal">
+                            <div class="modal-content">
+                                <form action="/delete" method="post">
+                                    @csrf
+                                    <div class="modal-container">
+                                        <span class="close">&times;</span>
+                                        <div class="d-flex mb-2">
+                                            <p class="modal-label">お名前</p>
+                                            <p class="modal-value">{{ $contact->first_name." ".$contact->last_name }}</p>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <p class="modal-label">性別</p>
+                                            <p class="modal-value">{{ getGenderText((int)$contact->gender)}}</p>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <p class="modal-label">メールアドレス</p>
+                                            <p class="modal-value">{{ $contact->email }}</p>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <p class="modal-label">お問い合わせの種類</p>
+                                            <p class="modal-value">{{ $contact->category->content }}</p>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <p class="modal-label">お問い合わせ内容</p>
+                                            <p class="modal-value">{{ $contact->detail }}</p>
+                                        </div>
+                                        <div class="text-align-center">
+                                            <button type="submit" class="delete white">削除</button>
+                                            <input type="hidden" name="id" value="{{ $contact->id }}">
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </div>
-                    <tr class="border-bottom">
-                        <td class="border-left">{{ $contact['first_name']." ".$contact['last_name'] }}</td>
-                        <td>{{ getGenderText((int)$contact['gender']) }}</td>
-                        <td>{{ $contact['email'] }}</td>
-                        <td>{{ $contact['category']['content'] }}</td>
-                        <td class="border-right">
-                            <button class="btn-show openModalBtn" data-modal-id="modal-{{ $contact->id }}">詳細</button>
-                        </td>
-                    </tr>
-                @endforeach
+                        <tr class="border-bottom">
+                            <td class="border-left">{{ $contact['first_name']." ".$contact['last_name'] }}</td>
+                            <td>{{ getGenderText((int)$contact['gender']) }}</td>
+                            <td>{{ $contact['email'] }}</td>
+                            <td>{{ $contact['category']['content'] }}</td>
+                            <td class="border-right">
+                                <button class="btn-show openModalBtn" data-modal-id="modal-{{ $contact->id }}">詳細</button>
+                            </td>
+                        </tr>
+                    @endforeach
             </tbody>
         </table>
-    </form>
 </div>
 
 <script src="{{ asset('js/modal.js') }}"></script>

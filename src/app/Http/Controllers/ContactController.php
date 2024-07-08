@@ -34,7 +34,6 @@ class ContactController extends Controller
 
     public function create(Request $request)
     {
-        // $this->validate($request, Book::$rules);
         $form = $request->all();
         Contact::create($form);
         return view('thanks');
@@ -44,8 +43,15 @@ class ContactController extends Controller
     {
         $contacts = Contact::join('categories', 'contacts.category_id', '=', 'categories.id')
             ->select('contacts.*', 'categories.content')
-            ->paginate(10);
-        return view('admin', compact('contacts'));
+            ->paginate(7);
+        $categories = Category::all();
+        return view('admin', compact('contacts', 'categories'));
+    }
+
+    public function delete(Request $request)
+    {
+        Contact::find($request->id)->delete();
+        return redirect('/admin');
     }
 
     public function thanks()
