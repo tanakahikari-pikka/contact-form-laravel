@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/admin.css')}}">
 @endsection
 
+
 @section('title', 'admin')
 
 @section('link')
@@ -16,7 +17,7 @@
 @section('content')
 @section('heading', 'Admin')
 <div class="container">
-    <form class="form-inline" action="" method="post">
+    <form class="form-inline" action="">
         @csrf
         <!--　TODO： 画面幅に応じて　ボタン群の幅を可変にする -->
         <div class="d-flex justify-content-between mt-2 mb-2">
@@ -46,8 +47,7 @@
         </div>
         <div class="d-flex justify-content-between mb-1">
             <button type="submit" class="btn-export bg-ash">エクスポート</button>
-            <!-- ページネーション -->
-        {{ $contacts->links('vendor.pagenation.custom') }}
+            {{ $contacts->links('vendor.pagenation.custom') }}
         </div>
         <table class="table">
             <thead>
@@ -61,13 +61,43 @@
             </thead>
             <tbody>
                 @foreach($contacts as $contact)
+                    <div id="modal-{{ $contact->id }}" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-container">
+                                <span class="close">&times;</span>
+                                <div class="d-flex mb-2">
+                                    <p class="modal-label">お名前</p>
+                                    <p class="modal-value">{{ $contact->first_name." ".$contact->last_name }}</p>
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <p class="modal-label">性別</p>
+                                    <p class="modal-value">{{ getGenderText((int)$contact->gender)}}</p>
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <p class="modal-label">メールアドレス</p>
+                                    <p class="modal-value">{{ $contact->email }}</p>
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <p class="modal-label">お問い合わせの種類</p>
+                                    <p class="modal-value">{{ $contact->category->content }}</p>
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <p class="modal-label">お問い合わせ内容</p>
+                                    <p class="modal-value">{{ $contact->detail }}</p>
+                                </div>
+                                <div class="text-align-center">
+                                    <button class="delete white">削除</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <tr class="border-bottom">
                         <td class="border-left">{{ $contact['first_name']." ".$contact['last_name'] }}</td>
                         <td>{{ getGenderText((int)$contact['gender']) }}</td>
                         <td>{{ $contact['email'] }}</td>
                         <td>{{ $contact['category']['content'] }}</td>
                         <td class="border-right">
-                            <button type="submit" class="btn-show">詳細</button>
+                            <button class="btn-show openModalBtn" data-modal-id="modal-{{ $contact->id }}">詳細</button>
                         </td>
                     </tr>
                 @endforeach
@@ -75,4 +105,8 @@
         </table>
     </form>
 </div>
+
+<script src="{{ asset('js/modal.js') }}"></script>
+
 @endsection
+
