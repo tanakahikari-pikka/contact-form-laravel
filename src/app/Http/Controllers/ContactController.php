@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\GenderType;
+use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
@@ -23,7 +24,7 @@ class ContactController extends Controller
         return view('index', compact('params'));
     }
 
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
         $contact = $request->all();
         $category = Category::find($request->category_id);
