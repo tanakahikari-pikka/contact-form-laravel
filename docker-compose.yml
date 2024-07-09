@@ -15,11 +15,13 @@ services:
     working_dir: /data
 
   db:
+    platform: linux/x86_64
     build: ./infra/mysql
     volumes:
       - db-store:/var/lib/mysql
 
   phpmyadmin:
+    platform: linux/x86_64
     image: phpmyadmin/phpmyadmin
     environment:
       PMA_HOST: db
