@@ -38,6 +38,8 @@ Apple Silicon（M1/M2 チップなどの ARM アーキテクチャ）を搭載�
       - db**
 ```
 
+**Laravel構築**
+
 依存ライブラリのインストール
 
 ```jsx
@@ -116,4 +118,4 @@ erDiagram
 ## URL
 
 開発環境：http://localhost:8080/
-phpMyAdmin:：[http://localhost:8081/](http://localhost:8080/)
+phpMyAdmin: http://localhost:8081/
